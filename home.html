@@ -5,49 +5,97 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="" type="URL">
+    <link rel="shortcut icon" href="components/Yin_yang.svg.png" >
 
     <link rel="stylesheet" href="style/styles.css">
 
 </head>
 <body>
-    <h1>Lista de Desejos</h1>
+
+    <header>
+        <h1>Nexy Wishes</h1>
+        <div class="botoes-modal">
+            <div class="btn-container hidden">
+                <button onclick="abrirModalLista()">Criar Lista</button>
+                <button onclick="abrirGerenciadorListas()">Excluir Lista</button>
+            </div>
+        </div>
+    </header>
+
     <div class="tabelas">
+    </div>
 
-        <div class="categoria">
-            <h2>Informática</h2>
-            <div class="itens">
-                <div class="item">
-                    <img src="https://http2.mlstatic.com/D_NQ_NP_2X_805517-MLB82272086715_022025-F-switch-hub-5-portas-rj45-gigabit-101001000mbps-bivolt-nf.webp" alt="Switch Gigabit">
-                    <div class="info">
-                        <h3>Switch Gigabit</h3>
-                        <p>Preço: R$ 199,90</p>
-                        <a href="#">Ver produto</a>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" onchange="marcarComprado(this)">
-                    </div>
-                </div>
+    <div class="welcome">
+        <h2>Bem-vindo a Nexy Wishes</h2>
+        <p>Todos os desejos merecem uma lista. Crie a sua!</p>
+        <button onclick="abrirModalLista()" id="btn-criar-lista">Criar Lista</button>
+    </div>
+
+    <!-- ADICIONAR TABELAS -->
+
+    <div id="modal-lista" class="modal hidden">
+        <div class="modal-content nova-lista">
+            <span class="close" onclick="fecharModalLista()">&times;</span>
+            <h3>Nova Lista de Desejos</h3>
+            <input type="text" id="nomeLista" placeholder="Nome da Lista">
+            <div class="botoes-modal">
+                <button onclick="fecharModalLista()">Cancelar</button>
+                <button onclick="criarLista()">Criar</button>
             </div>
         </div>
+    </div>
 
-        <div class="categoria">
-            <h2>Ferramentas</h2>
-            <div class="itens">
-                <div class="item">
-                    <img src="https://via.placeholder.com/250x150" alt="Furadeira">
-                    <div class="info">
-                        <h3>Furadeira</h3>
-                        <a href="#">Ver produto</a>
-                        <p>Preço: R$ 350,00</p>
-                    </div>
-                    <div class="checkbox">
-                        <input type="checkbox" onchange="marcarComprado(this)">
-                    </div>
-                </div>
+<!-- GERENCIAR / EXCLUIR LISTAS -->
+
+    <div id="gerenciar-listas" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="fecharGerenciadorListas()">&times;</span>
+            <h3>Gerenciar Listas</h3>
+            <ul id="listaCategorias"></ul>
+        </div>
+    </div>
+    
+    <div id="confirmar-exclusao-lista" class="modal hidden">
+        <div class="modal-content">
+            <h3 id="texto-confirmacao" class="texto-confirmacao"></h3>
+        <div class="botoes" >
+            <button class="del-btn" onclick="confirmarExcluirLista()">Sim</button>
+            <button class="del-btn" onclick="fecharConfirmacaoExcluirLista()">Não</button>
+        </div>
+        </div>
+    </div>
+    
+
+    <!-- <p class="placeholder">Adicione seus desejos</p> -->
+    
+    <!-- ADICIONAR PRODUTOS -->
+    
+    <div id="form-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="CloseForm()">&times;</span>
+            <h3>Adicionar Produto</h3>
+            <input type="text" id="nomeProd" placeholder="Nome do Produto">
+            <input type="text" id="precoProd" placeholder="Preço do Produto">
+            <input type="text" id="linkProd" placeholder="Link do Produto">
+            <input type="text" id="imgProd" placeholder="Link da Imagem">
+            <div class="botoes-modal">
+                <button onclick="CloseForm()">Cancelar</button>
+                <button onclick="AddProd()">Adicionar</button>
             </div>
         </div>
+    </div>
 
+<!-- EXCLUIR PRODUTOS -->
+
+    <div id="exclude-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="CloseExclude()">&times;</span>
+            <h3>Deseja excluir esse produto?</h3>
+            <div class="botoes-modal">
+            <button onclick="ConfirmExclude()">Sim</button>
+            <button onclick="CloseExclude()">Não</button>
+            </div>
+        </div>
     </div>
 </body>
 <script src="scripts/main.js"></script>
