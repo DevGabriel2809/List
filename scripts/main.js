@@ -216,19 +216,18 @@ function prepararExcluirLista(index, nome) {
 }
 
 function fecharConfirmacaoExcluirLista() {
-    function fecharConfirmacaoExcluirLista() {
-        const confirm = document.getElementById('confirmar-exclusao-lista');
-        confirm.classList.remove('entrando');
-        confirm.classList.add('saindo');
-    
-        setTimeout(() => {
-            confirm.classList.add('hidden');
-            confirm.classList.remove('saindo');
-            listaParaExcluir = null;
-        }, 400);
-    }
-    
+    const confirm = document.getElementById('confirmar-exclusao-lista');
+    confirm.classList.remove('entrando');
+    confirm.classList.add('saindo');
+
+    setTimeout(() => {
+        confirm.classList.add('hidden');
+        confirm.classList.remove('saindo');
+        listaParaExcluir = null;
+    }, 400);
 }
+
+
 
 function atualizarGerenciadorListas() {
     const listaUl = document.getElementById('listaCategorias');
@@ -274,6 +273,29 @@ function confirmarExcluirLista() {
     salvarDados();
 
 }
+
+// Excluir todas as listas
+
+function confirmarExcluirTodasListas() {
+    if (confirm("Tem certeza que deseja excluir TODAS as listas? Isso removerá tudo.")) {
+        document.querySelectorAll('.categoria').forEach(cat => cat.remove());
+        document.querySelector('.welcome').style.display = 'block';
+
+        const btnContainer = document.querySelector('.btn-container');
+        btnContainer.classList.remove('visible');
+        btnContainer.classList.add('saindo');
+
+        setTimeout(() => {
+            btnContainer.classList.add('hidden');
+            btnContainer.classList.remove('saindo');
+        }, 400);
+
+        fecharGerenciadorListas();
+        atualizarGerenciadorListas();
+        salvarDados();
+    }
+}
+
 
 //  Salvar dados 
 

@@ -12,6 +12,7 @@
 </head>
 <body>
 
+
     <header>
         <h1>Nexy Wishes</h1>
         <div class="botoes-modal">
@@ -51,6 +52,9 @@
         <div class="modal-content">
             <span class="close" onclick="fecharGerenciadorListas()">&times;</span>
             <h3>Gerenciar Listas</h3>
+            <button class="botoes-modal del-todas del-btn" onclick="confirmarExcluirTodasListas()">
+                Excluir Todas
+            </button>
             <ul id="listaCategorias"></ul>
         </div>
     </div>
@@ -97,6 +101,52 @@
             </div>
         </div>
     </div>
+
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
+
+<script>
+tsParticles.load("particles-bg", {
+    fullScreen: { enable: false },
+    background: { color: "transparent" },
+    particles: {
+        number: { value: 250 },
+        size: { value: 0.3 },
+        color: { value: "#ffffff" },
+        move: { enable: true, speed: 1 },
+        links: {
+            enable: true,
+            color: "#39e0d8",
+            distance: 35
+        }
+    },
+    interactivity: {
+        events: {
+            onHover: {
+                enable: true,
+                mode: "repulse"
+            },
+            onClick: {
+                enable: true,
+                mode: "push"
+            }
+        },
+        modes: {
+            repulse: {
+                distance: 50
+            },
+            push: {
+                quantity: 5
+            }
+        }
+    }
+});
+</script>
+
 </body>
+<div id="particles-bg"></div>
+
 <script src="scripts/main.js"></script>
 </html>
