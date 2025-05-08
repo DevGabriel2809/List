@@ -328,7 +328,7 @@ function carregarDados() {
                 <img src="${prod.imagem}" alt="${prod.nome}">
                 <div class="info">
                     <h3>${prod.nome}</h3>
-                    <p>Preço: <strong>${prod.preco}</strong></p>
+                    <p>Preço: R$<strong>${prod.preco}</strong></p>
                     <a href="${prod.link}" target="_blank">Ver Produto</a>
                 </div>
                 <div class="interactive">
