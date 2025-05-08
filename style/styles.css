@@ -271,11 +271,13 @@ body {
     text-align: center;
     display: flex;padding-top: 5px;
 }
+
 .del-todas{
     width: 140px;
     height: 70px;
     padding: 10px;
 }
+
 .add-btn:hover{
     background-color: var(--product-color-bought);
     color: white;

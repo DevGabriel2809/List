@@ -59,7 +59,7 @@ novoItem.innerHTML = `
 <div class="info">
     <h3>${nome}</h3>
     <p>Preço: <strong>${preco}</strong></p>
-    <a href="${link}" target="_blank">Ver Produto"</a>
+    <a href="${link}" target="_blank">Ver Produto</a>
 </div>
 <div class="interactive">
     <div class="exclude">
